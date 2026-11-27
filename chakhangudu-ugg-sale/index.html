@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<title>착한구두 어그대란 릴스 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root {
+  --paper: #F7F6F2; --ink: #1B1C1F; --ink-2: #4A4C52; --ink-3: #7C7E86;
+  --line: #DDDCD5; --panel: #FFFFFF; --panel-2: #EEEDE7;
+  --blue: #1E4FD0; --blue-soft: #E4EAFB;
+  --red: #C4361F; --red-soft: #F8E5E0;
+  --amber: #8A5A00; --amber-soft: #F6ECD2;
+  --green: #1A6B3A; --green-soft: #E0F4E9;
+  --shadow: 0 1px 2px rgba(20,22,30,.06), 0 6px 18px rgba(20,22,30,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #141518; --ink: #EDECE6; --ink-2: #B9B8B0; --ink-3: #83848C;
+    --line: #2C2D33; --panel: #1C1D22; --panel-2: #24252B;
+    --blue: #7A9BFF; --blue-soft: #1C2645;
+    --red: #FF8A70; --red-soft: #3A1F19;
+    --amber: #E8B85A; --amber-soft: #3A2E12;
+    --green: #5DDC8B; --green-soft: #0E2F1E;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #141518; --ink: #EDECE6; --ink-2: #B9B8B0; --ink-3: #83848C;
+  --line: #2C2D33; --panel: #1C1D22; --panel-2: #24252B;
+  --blue: #7A9BFF; --blue-soft: #1C2645;
+  --red: #FF8A70; --red-soft: #3A1F19;
+  --amber: #E8B85A; --amber-soft: #3A2E12;
+  --green: #5DDC8B; --green-soft: #0E2F1E;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 15px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left,0px));
+  padding-right: max(16px, env(safe-area-inset-right,0px));
+  padding-bottom: max(64px, env(safe-area-inset-bottom,0px));
+  margin: 0; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 760px; margin: 0 auto; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+/* header */
+.top-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 18px 0 12px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 24px;
+}
+.brand-badge {
+  background: var(--ink); color: var(--paper);
+  font-size: 11px; font-weight: 900; letter-spacing: .08em;
+  padding: 4px 10px; border-radius: 4px;
+}
+.top-bar h1 {
+  font-size: 20px; font-weight: 900; margin: 0;
+  letter-spacing: -.02em;
+}
+.top-bar .sub { font-size: 13px; color: var(--ink-3); margin-left: auto; white-space: nowrap; }
+
+/* section label */
+.sec-label {
+  display: flex; align-items: center; gap: 8px;
+  margin: 32px 0 14px;
+}
+.sec-num {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 900; flex-shrink: 0;
+}
+.sec-label h2 { margin: 0; font-size: 16px; font-weight: 900; letter-spacing: -.01em; }
+
+/* script box */
+.script-box {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.script-box + .script-box { margin-top: 10px; }
+.script-row { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; }
+.script-row + .script-row { border-top: 1px solid var(--line); }
+.script-tag {
+  flex-shrink: 0; font-size: 11px; font-weight: 900;
+  letter-spacing: .06em; color: var(--ink-3);
+  min-width: 60px; padding-top: 2px;
+}
+.script-text { font-size: 14px; line-height: 1.65; }
+.script-text b { font-weight: 900; color: var(--ink); }
+.script-text .opt { color: var(--ink-3); font-size: 13px; }
+.script-text .alt { color: var(--blue); }
+.script-text .hl { background: var(--amber-soft); color: var(--amber); border-radius: 3px; padding: 0 4px; font-weight: 700; }
+
+/* product cards */
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 4px;
+}
+@media (max-width: 480px) { .prod-grid { grid-template-columns: 1fr; } }
+.prod-card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.prod-name { font-size: 13.5px; font-weight: 900; margin-bottom: 10px; line-height: 1.4; }
+.price-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.price-orig { font-size: 12px; color: var(--ink-3); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+.disc-badge {
+  font-size: 11px; font-weight: 900; color: var(--red);
+  background: var(--red-soft); padding: 2px 6px; border-radius: 4px;
+}
+.price-final { font-size: 20px; font-weight: 900; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.prod-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.tag {
+  font-size: 11.5px; font-weight: 700;
+  background: var(--panel-2); color: var(--ink-2);
+  padding: 3px 8px; border-radius: 20px;
+}
+.prod-feat { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+.prod-feat li { margin-bottom: 2px; }
+.prod-feat ul { margin: 0; padding-left: 16px; }
+
+/* tip box */
+.tip-box {
+  background: var(--blue-soft); border: 1px solid var(--blue);
+  border-radius: 10px; padding: 14px 16px;
+  margin-top: 10px; color: var(--blue);
+  font-size: 13.5px; line-height: 1.6;
+}
+.tip-box .tip-label {
+  display: block; font-size: 11px; font-weight: 900; letter-spacing: .1em;
+  margin-bottom: 5px;
+}
+
+/* cta box */
+.cta-box {
+  background: var(--ink); color: var(--paper);
+  border-radius: 12px; padding: 20px 22px;
+  margin-top: 32px; text-align: center;
+}
+.cta-box p { margin: 0; font-size: 16px; font-weight: 900; letter-spacing: -.01em; }
+.cta-box .sub { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 6px; display: block; font-weight: 400; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <span class="brand-badge">착한구두</span>
+    <h1>어그대란 릴스 가이드</h1>
+    <span class="sub mono">겨울 신상 한정</span>
+  </div>
+
+  <!-- 썸네일 -->
+  <div class="sec-label">
+    <div class="sec-num">T</div>
+    <h2>썸네일</h2>
+  </div>
+  <div class="script-box">
+    <div class="script-row">
+      <span class="script-tag">텍스트</span>
+      <div class="script-text">
+        <b class="hl">(미쳤어요)~</b> <span class="opt">(지역)</span><br>
+        다이소(테무) 보다 저렴한<br>
+        <b>1만원대</b> <span class="opt">(어그신상 / 어그대란 / 겨울어그신상)</span> 떴다
+      </div>
+    </div>
+  </div>
+
+  <!-- 장면1 -->
+  <div class="sec-label">
+    <div class="sec-num">1</div>
+    <h2>장면 1 — 후킹 <span style="font-size:12px;font-weight:500;color:var(--ink-3);margin-left:4px">1초 집중</span></h2>
+  </div>
+  <div class="script-box">
+    <div class="script-row">
+      <span class="script-tag">대사</span>
+      <div class="script-text">
+        <b class="hl">(겨울)</b> 신상어그 <b>1만원대</b> 구매 가능한<br>
+        <b class="hl">(미친할인)</b> 어그대란 떴어요
+      </div>
+    </div>
+  </div>
+
+  <!-- 장면2 -->
+  <div class="sec-label">
+    <div class="sec-num">2</div>
+    <h2>장면 2 — 신뢰 쌓기</h2>
+  </div>
+  <div class="script-box">
+    <div class="script-row">
+      <span class="script-tag">포인트</span>
+      <div class="script-text">
+        재고상품·이월상품 <b>아닌</b>
+      </div>
+    </div>
+    <div class="script-row">
+      <span class="script-tag">대사</span>
+      <div class="script-text">
+        겨울신상어그 <b class="hl">(인기상품)</b>을 <b>무려 30% 할인</b><br>
+        <span class="opt">원래 얼마 제품 → 얼마 (비교 자막)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 장면3 -->
+  <div class="sec-label">
+    <div class="sec-num">3</div>
+    <h2>장면 3 — 상품 소구</h2>
+  </div>
+
+  <div class="prod-grid">
+
+    <div class="prod-card">
+      <div class="prod-name">포븐 퍼안감 밴딩 어그 슬리퍼</div>
+      <div class="price-row">
+        <span class="price-orig">35,900원</span>
+        <span class="disc-badge">20%↓</span>
+      </div>
+      <div class="price-final">28,720원</div>
+      <div class="prod-tags" style="margin-top:10px">
+        <span class="tag">뒷밴딩</span>
+        <span class="tag">굽 4cm</span>
+        <span class="tag">슬리퍼</span>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-name">시트롱 퍼안감 플랫폼 방한화</div>
+      <div class="price-row">
+        <span class="price-orig">49,900원</span>
+        <span class="disc-badge">20%↓</span>
+      </div>
+      <div class="price-final">39,920원</div>
+      <div class="prod-tags" style="margin-top:10px">
+        <span class="tag">뮬+부츠 2디자인</span>
+        <span class="tag">굽 4.5cm</span>
+        <span class="tag">비건양털</span>
+        <span class="tag">폭신한 쿠션</span>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-name">클로이 퍼안감 첼시 방한 부츠</div>
+      <div class="price-row">
+        <span class="price-orig">29,900원</span>
+        <span class="disc-badge">33%↓</span>
+      </div>
+      <div class="price-final">19,900원</div>
+      <div class="prod-tags" style="margin-top:10px">
+        <span class="tag">3중보온</span>
+        <span class="tag">굽 3cm</span>
+        <span class="tag">첼시부츠</span>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-name">풀문 키높이 퍼안감 방한 부츠</div>
+      <div class="price-row">
+        <span class="price-orig">59,900원</span>
+        <span class="disc-badge">20%↓</span>
+      </div>
+      <div class="price-final">47,920원</div>
+      <div class="prod-tags" style="margin-top:10px">
+        <span class="tag">키높이 7cm</span>
+        <span class="tag">숨겨진 굽</span>
+      </div>
+      <div class="tip-box" style="margin-top:10px; padding:10px 12px;">
+        <span class="tip-label">📸 촬영 TIP</span>
+        한쪽만 신어서 한쪽 발이 떠있는 비포애프터 ·
+        또는 화면 반쪽 분할로 비포/애프터 비교
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>재고 품절되기 전에 달려가세요 🏃</p>
+    <span class="sub">전 매장 투입 · 플래그십 소량</span>
+  </div>
+
+</div>
+</body>
+</html>
