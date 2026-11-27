@@ -100,22 +100,22 @@ body {
   border-radius: 14px; overflow: hidden;
   box-shadow: var(--shadow);
 }
-.prod-inner { display: flex; gap: 0; }
-@media (max-width: 540px) { .prod-inner { flex-direction: column; } }
 
-/* image side */
-.prod-imgs { flex: 0 0 220px; display: flex; flex-direction: column; gap: 2px; background: var(--panel-2); }
-@media (max-width: 540px) { .prod-imgs { flex: none; flex-direction: row; height: 160px; } }
-.prod-imgs .main-img { flex: 1; overflow: hidden; }
-.prod-imgs .main-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.prod-imgs .sub-imgs { display: flex; flex-direction: column; gap: 2px; }
-@media (max-width: 540px) { .prod-imgs .sub-imgs { flex-direction: row; } }
-.prod-imgs .sub-imgs img { width: 100%; display: block; object-fit: cover; flex: 1; }
-@media (min-width: 541px) { .prod-imgs .sub-imgs img { height: 70px; } }
-@media (max-width: 540px) { .prod-imgs .sub-imgs img { height: 100%; width: 80px; } }
+/* image gallery — horizontal scroll strip */
+.prod-imgs {
+  display: flex; gap: 3px; overflow-x: auto;
+  background: var(--panel-2);
+  scrollbar-width: none;
+}
+.prod-imgs::-webkit-scrollbar { display: none; }
+.prod-imgs img {
+  flex: 0 0 auto; height: 200px; width: auto;
+  display: block; object-fit: contain;
+  background: var(--panel-2);
+}
 
 /* info side */
-.prod-info { flex: 1; padding: 16px 18px; min-width: 0; }
+.prod-info { padding: 16px 18px; }
 .prod-name { font-size: 14px; font-weight: 900; margin-bottom: 10px; line-height: 1.4; }
 .price-row { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; flex-wrap: wrap; }
 .price-orig { font-size: 12px; color: var(--ink-3); text-decoration: line-through; font-variant-numeric: tabular-nums; font-family: "IBM Plex Mono", monospace; }
@@ -225,94 +225,81 @@ body {
 
     <!-- 포븐 -->
     <div class="prod-card">
-      <div class="prod-inner">
-        <div class="prod-imgs">
-          <div class="main-img"><img src="img/poven-1.png" alt="포븐 슬리퍼"></div>
-          <div class="sub-imgs"><img src="img/poven-2.png" alt="포븐 슬리퍼 측면"></div>
+      <div class="prod-imgs">
+        <img src="img/poven-1.png" alt="포븐 슬리퍼">
+        <img src="img/poven-2.png" alt="포븐 슬리퍼 측면">
+      </div>
+      <div class="prod-info">
+        <div class="prod-name">포븐 퍼안감 밴딩 어그 슬리퍼</div>
+        <div class="price-row">
+          <span class="price-orig">35,900원</span>
+          <span class="disc-badge">20%↓</span>
         </div>
-        <div class="prod-info">
-          <div class="prod-name">포븐 퍼안감 밴딩 어그 슬리퍼</div>
-          <div class="price-row">
-            <span class="price-orig">35,900원</span>
-            <span class="disc-badge">20%↓</span>
-          </div>
-          <div class="price-final">28,720원</div>
-          <div class="prod-tags">
-            <span class="tag">뒷밴딩</span>
-            <span class="tag">굽 4cm</span>
-            <span class="tag">슬리퍼</span>
-          </div>
+        <div class="price-final">28,720원</div>
+        <div class="prod-tags">
+          <span class="tag">뒷밴딩</span>
+          <span class="tag">굽 4cm</span>
+          <span class="tag">슬리퍼</span>
         </div>
       </div>
     </div>
 
     <!-- 시트롱 -->
     <div class="prod-card">
-      <div class="prod-inner">
-        <div class="prod-imgs">
-          <div class="main-img"><img src="img/citron-2.png" alt="시트롱 부츠"></div>
-          <div class="sub-imgs">
-            <img src="img/citron-1.png" alt="시트롱 부츠 뒤">
-            <img src="img/citron-3.png" alt="시트롱 뮬">
-            <img src="img/citron-4.png" alt="시트롱 뮬 측면">
-          </div>
+      <div class="prod-imgs">
+        <img src="img/citron-2.png" alt="시트롱 부츠">
+        <img src="img/citron-1.png" alt="시트롱 부츠 뒤">
+        <img src="img/citron-3.png" alt="시트롱 뮬">
+        <img src="img/citron-4.png" alt="시트롱 뮬 측면">
+      </div>
+      <div class="prod-info">
+        <div class="prod-name">시트롱 퍼안감 플랫폼 방한화</div>
+        <div class="price-row">
+          <span class="price-orig">49,900원</span>
+          <span class="disc-badge">20%↓</span>
         </div>
-        <div class="prod-info">
-          <div class="prod-name">시트롱 퍼안감 플랫폼 방한화</div>
-          <div class="price-row">
-            <span class="price-orig">49,900원</span>
-            <span class="disc-badge">20%↓</span>
-          </div>
-          <div class="price-final">39,920원</div>
-          <div class="prod-tags">
-            <span class="tag">뮬+부츠 2디자인</span>
-            <span class="tag">굽 4.5cm</span>
-            <span class="tag">비건양털</span>
-            <span class="tag">폭신한 쿠션</span>
-          </div>
-          <div class="prod-feat">동글동글한 디자인, 비건 양털 소재</div>
+        <div class="price-final">39,920원</div>
+        <div class="prod-tags">
+          <span class="tag">뮬+부츠 2디자인</span>
+          <span class="tag">굽 4.5cm</span>
+          <span class="tag">비건양털</span>
+          <span class="tag">폭신한 쿠션</span>
         </div>
+        <div class="prod-feat">동글동글한 디자인, 비건 양털 소재</div>
       </div>
     </div>
 
     <!-- 클로이 -->
     <div class="prod-card">
-      <div class="prod-inner">
-        <div class="prod-imgs">
-          <div class="main-img"><img src="img/chloe-1.png" alt="클로이 부츠"></div>
-          <div class="sub-imgs">
-            <img src="img/chloe-2.png" alt="클로이 부츠 2">
-            <img src="img/chloe-3.png" alt="클로이 부츠 3">
-          </div>
+      <div class="prod-imgs">
+        <img src="img/chloe-1.png" alt="클로이 부츠">
+        <img src="img/chloe-2.png" alt="클로이 부츠 단면">
+        <img src="img/chloe-3.png" alt="클로이 부츠 측면">
+      </div>
+      <div class="prod-info">
+        <div class="prod-name">클로이 퍼안감 첼시 방한 부츠</div>
+        <div class="price-row">
+          <span class="price-orig">29,900원</span>
+          <span class="disc-badge">33%↓</span>
         </div>
-        <div class="prod-info">
-          <div class="prod-name">클로이 퍼안감 첼시 방한 부츠</div>
-          <div class="price-row">
-            <span class="price-orig">29,900원</span>
-            <span class="disc-badge">33%↓</span>
-          </div>
-          <div class="price-final">19,500원</div>
-          <div class="prod-tags">
-            <span class="tag">3중보온</span>
-            <span class="tag">굽 3cm</span>
-            <span class="tag">첼시부츠</span>
-          </div>
-          <div class="prod-feat">3중보온으로 따뜻함 · 부담없는 3cm 굽</div>
+        <div class="price-final">19,500원</div>
+        <div class="prod-tags">
+          <span class="tag">3중보온</span>
+          <span class="tag">굽 3cm</span>
+          <span class="tag">첼시부츠</span>
         </div>
+        <div class="prod-feat">3중보온으로 따뜻함 · 부담없는 3cm 굽</div>
       </div>
     </div>
 
     <!-- 풀문 -->
     <div class="prod-card">
-      <div class="prod-inner">
-        <div class="prod-imgs">
-          <div class="main-img"><img src="img/fullmoon-1.png" alt="풀문 비포애프터"></div>
-          <div class="sub-imgs">
-            <img src="img/fullmoon-2.png" alt="풀문 부츠 2">
-            <img src="img/fullmoon-3.png" alt="풀문 부츠 3">
-          </div>
-        </div>
-        <div class="prod-info">
+      <div class="prod-imgs">
+        <img src="img/fullmoon-1.png" alt="풀문 비포애프터">
+        <img src="img/fullmoon-2.png" alt="풀문 굽 단면">
+        <img src="img/fullmoon-3.png" alt="풀문 부츠">
+      </div>
+      <div class="prod-info">
           <div class="prod-name">풀문 키높이 퍼안감 방한 부츠</div>
           <div class="price-row">
             <span class="price-orig">59,900원</span>
@@ -341,7 +328,6 @@ body {
             </div>
           </div>
         </div>
-      </div>
     </div>
 
   </div>
